@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Poppins', sans-serif;
+}
+
+.main {
+    background-color: #FEEDD6;
+    max-width: 850px;
+    min-height: 465px;
+    padding: 10px 10px 10px 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main h2 {
+    font-size: 32px;
+    color: #676565;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    letter-spacing: 0.5px;
+}
+
+.course_block p {
+    font-size: 20px;
+    margin-top: 15px;
+    color: #676565;
+}
+
+.blue_font {
+    color: #378DB2;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.crossed_out {
+    text-decoration: line-through;
+}
+
+.content {
+    margin-top: 18px;
+}
+
+.content p:not(:first-child) {
+    margin-top: 15px;
+    color: #676565;
+    font-size: 17px;
+    text-indent: 20px;
+    text-align: justify;
+    line-height: 1.25;
+}
