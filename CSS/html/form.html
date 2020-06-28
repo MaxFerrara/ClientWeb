@@ -12,7 +12,7 @@
 <div class="main">
     <h2>Отправить заявку</h2>
     <div class="school_form">
-        <form action="#" method="post">
+        <form action="#" method="post" id="my_form">
             <div>
                 <p>Ваше имя</p>
                 <label>
@@ -30,11 +30,11 @@
             <div>
                 <p>Ваш email или VK</p>
                 <label>
-                    <input placeholder="Ваш email или VK *" type="email" name="client_telephone" value="">
+                    <input placeholder="Ваш email или VK *" type="email" name="client_email" value="">
                 </label>
             </div>
 
-            <div>
+            <div class="comment">
                 <p>Комментарий</p>
                 <label>
                     <textarea placeholder="Комментарий (не обязательно)" name="commit"></textarea>
@@ -42,7 +42,9 @@
             </div>
 
             <p>Заполните и отправьте форму, и мы перезвоним Вам по указанному номеру</p>
-            <button type="submit">Отправить заявку</button>
+            <div class="form_button">
+                <button type="submit" form="my_form">Отправить заявку</button>
+            </div>
         </form>
     </div>
 </div>

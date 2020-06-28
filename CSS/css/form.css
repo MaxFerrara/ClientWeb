@@ -18,6 +18,7 @@ body, html {
 .main h2 {
     margin-top: 30px;
     margin-left: 17px;
+    margin-right: auto;
     font-size: 32px;
     color: #676565;
 }
@@ -30,6 +31,7 @@ body, html {
     margin-top: 5px;
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 15px;
 }
 
 .school_form div p {
@@ -38,11 +40,12 @@ body, html {
     padding-top: 24px;
 }
 
-.school_form input, textarea {
+.school_form input, .school_form textarea {
     margin-top: 8px;
     width: 100%;
     height: 40px;
     border: none;
+    padding-right: 15px;
 }
 
 .school_form textarea {
@@ -57,17 +60,29 @@ body, html {
 }
 
 .school_form button {
+    margin-top: 1px;
     height: 35px;
     width: 172px;
     background-color: #378DB2;
     border: none;
     color: #FFFFFF;
     font-weight: bold;
-    float: right;
 }
 
 .school_form [placeholder] {
     padding-left: 15px;
     font-size: 17px;
     font-family: 'Poppins', sans-serif;
+}
+
+.comment [placeholder] {
+    padding-top: 8px;
+}
+
+.form_button {
+    text-align: right;
+}
+
+.school_form button:hover {
+    background-color: royalblue;
 }
