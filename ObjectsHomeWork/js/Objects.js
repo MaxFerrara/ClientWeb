@@ -1,3 +1,5 @@
+"use strict";
+
 (function () {
     var usa = {
         name: "USA",
@@ -32,20 +34,34 @@
     };
 
     var countries = [usa, greatBritain, germany, hungary];
+
+    console.log("исходный массив");
     console.log(countries);
 
-    var countries1 = countries.filter(function (a, b) {
-        if (a.cities.length > b.cities.length) {
-            return 1;
-        }
+    var maxCitiesQuantity = 0;
 
-        if (a.cities.length < b.cities.length) {
-            return -1;
+    for (var i = 0; i < countries.length; ++i) {
+        if (maxCitiesQuantity < countries[i].cities.length) {
+            maxCitiesQuantity = countries[i].cities.length;
         }
+    }
 
-        return 0;
+    var maxCitiesQuantityArray = countries.filter(function (element) {
+        return element.cities.length === maxCitiesQuantity;
     });
 
-    console.log(countries1);
+    console.log("массив стран с максимальным количеством городов");
+    console.log(maxCitiesQuantityArray);
 
+    var newKeyValueArray = countries.map(function (country) {
+        return {
+            name: country.name,
+            amount: country.cities.reduce(function (total, cities) {
+                return total + cities.population;
+            }, 0)
+        };
+    })
+
+    console.log("массив где ключ название страны, а значение - средняя численность населения по объявленым городам");
+    console.log(newKeyValueArray);
 })();

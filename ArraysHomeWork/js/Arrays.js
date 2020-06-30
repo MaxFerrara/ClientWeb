@@ -1,3 +1,5 @@
+"use strict";
+
 (function () {
     console.log("изначальный массив:");
     var array = [9, -15, 0, 5, 10, 12, 3, 7, 21];
@@ -31,17 +33,17 @@
 })();
 
 (function () {
-    var array1 = [];
+    var numbersArray = [];
 
     for (var j = 0; j < 100; ++j) {
-        array1[j] = j + 1;
+        numbersArray[j] = j + 1;
     }
 
     console.log("Массив из 100 чисел:");
-    console.log(array1);
+    console.log(numbersArray);
 
-    var array2 = array1.map(number => number * number);
+    var squaresNumbersArray = numbersArray.map(number => number * number);
 
     console.log("Массив из квадратов чисел:");
-    console.log(array2)
+    console.log(squaresNumbersArray)
 })();
