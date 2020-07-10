@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <title>Temperature converter</title>
+</head>
+<body>
+<div class="main">
+    <h2>Temperature Converter</h2>
+    <div class="temperature_form">
+        <form action="#" id="convertation_form">
+            <div>
+                <p>enter celsius temperature</p>
+                <label>
+                    <input id="temperature_input" placeholder="here" type="text">
+                </label>
+            </div>
+
+            <div class="button_inside">
+                <div>
+                    <button id="convert_button" type="button">convert</button>
+                </div>
+                <div>
+                    <button id="reset_button" type="button">reset</button>
+                </div>
+            </div>
+
+            <div>
+                <p>fahrenheit result:
+                    <output id="fahrenheit_result"></output>
+                </p>
+                <p>kalvin result:
+                    <output id="kalvin_result"></output>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="../js/script.js"></script>
+</body>
+
+</html>

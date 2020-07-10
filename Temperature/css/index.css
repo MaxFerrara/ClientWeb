@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Poppins', sans-serif;
+}
+
+.main {
+    margin-top: 25px;
+    max-width: 320px;
+    min-height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #9932CC;
+    border-radius: 20px;
+    padding-top: 15px;
+}
+
+.main h2 {
+    color: black;
+    font-size: 25px;
+    text-align: center;
+}
+
+.temperature_form {
+    background-color: #D8BFD8;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 300px;
+    margin-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+    border-radius: 0 0 20px 20px;
+}
+
+.temperature_form div {
+    padding-top: 10px;
+}
+
+.button_inside div {
+    display: inline-block;
+    margin-left: 12px;
+}
+
+.temperature_form p {
+    margin-top: 10px;
+    text-align: center;
+    color: black;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.temperature_form input {
+    margin-top: 20px;
+    width: 100%;
+    height: 40px;
+    border: none;
+    padding-right: 15px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.button_inside button {
+    height: 36px;
+    width: 120px;
+    font-size: 20px;
+    background-color: #9932CC;
+    color: black;
+    border-color: black;
+    border-radius: 10px;
+}
+
+.button_inside button:hover {
+    background-color: #800080;
+    border-color: #FAEBD7;
+}
+
+.temperature_form output {
+    font-size: 20px;
+}
