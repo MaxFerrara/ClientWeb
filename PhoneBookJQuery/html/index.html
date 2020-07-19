@@ -7,9 +7,53 @@
     <title>Phone book</title>
 </head>
 <body>
-<h1>Bootstrap test</h1>
+<div class="container">
+    <div role="form-group" class="row">
+        <div class="col">
+            <p>Enter your name</p>
+            <label>
+                <input id="person_name" placeholder="your name" type="text" name="user_name">
+            </label>
+        </div>
 
+        <div class="col">
+            <p>Enter your Surname</p>
+            <label>
+                <input id="person_surname" placeholder="your surname" type="text" name="user_surname">
+            </label>
+        </div>
+
+        <div class="col">
+            <p>Enter your Phone</p>
+            <label>
+                <input id="person_phone" placeholder="your phone" type="text" name="user_phone">
+            </label>
+        </div>
+
+        <div class="col">
+            <button id="add_button" type="button" class="btn btn-dark">add</button>
+        </div>
+    </div>
+</div>
+
+<div>
+    <table class="table table-hover" id="subscribers_table">
+        <caption>Phone book</caption>
+        <thead class="thead-dark">
+        <th scope="col">№</th>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Phone number</th>
+        <th scope="col"></th>
+        </thead>
+
+        <tbody>
+
+        </tbody>
+    </table>
+</div>
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/script.js"></script>
 </body>
 </html>
