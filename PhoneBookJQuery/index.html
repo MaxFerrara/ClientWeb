@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <title>Phone book</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="custom_header">Phone book</h1>
+    <form role="form" class="form-inline form_block align-items-center was-validated" novalidate>
+        <div class="col-auto form-group">
+            <label for="person_name">Name</label>
+            <input id="person_name" class="form-control" placeholder="enter your name" type="text" name="user_name">
+            <div class="invalid-feedback">invalid</div>
+        </div>
+
+        <div class="col-auto form-group">
+            <label for="person_surname">Surname</label>
+            <input id="person_surname" class="form-control" placeholder="enter your surname" type="text" name="user_surname">
+            <div class="invalid-feedback">invalid</div>
+        </div>
+
+        <div class="col-auto form-group">
+            <label for="person_phone">Phone</label>
+            <input id="person_phone" class="form-control" placeholder="enter your phone" type="text" name="user_phone" maxlength="11">
+            <div class="invalid-feedback">invalid</div>
+        </div>
+
+        <div class="col-auto form-group">
+            <button id="add_button" type="button" class="btn btn-dark">add</button>
+        </div>
+    </form>
+
+    <div>
+        <table class="table table-hover" id="subscribers_table">
+            <caption>powered by MaxFerrara</caption>
+            <thead class="thead-dark">
+            <th scope="col">№</th>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Phone number</th>
+            <th scope="col">delete option</th>
+            </thead>
+
+            <tbody>
+            <!-- <tr>
+                 <th scope="row">1</th>
+                 <td>Mark</td>
+                 <td>Otto</td>
+                 <td>@mdo</td>
+                 <td><button class="btn del_button"><i class="fa fa-times" aria-hidden="true"></i></button></td>
+             </tr> -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
