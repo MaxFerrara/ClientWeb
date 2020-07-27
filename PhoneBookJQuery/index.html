@@ -11,31 +11,34 @@
 <body>
 <div class="container">
     <h1 class="custom_header">Phone book</h1>
-    <form role="form" class="form-inline form_block align-items-center was-validated" novalidate>
+    <form action="#" class="form-row form_block align-items-center needs-validation" novalidate>
         <div class="col-auto form-group">
             <label for="person_name">Name</label>
-            <input id="person_name" class="form-control" placeholder="enter your name" type="text" name="user_name">
-            <div class="invalid-feedback">invalid</div>
+            <input id="person_name" class="form-control input_field" placeholder="enter your name" type="text"
+                   name="user_name">
+            <div class="invalid-tooltip">field is empty</div>
         </div>
 
         <div class="col-auto form-group">
             <label for="person_surname">Surname</label>
-            <input id="person_surname" class="form-control" placeholder="enter your surname" type="text" name="user_surname">
-            <div class="invalid-feedback">invalid</div>
+            <input id="person_surname" class="form-control input_field" placeholder="enter your surname" type="text"
+                   name="user_surname">
+            <div class="invalid-tooltip">field is empty</div>
         </div>
 
         <div class="col-auto form-group">
             <label for="person_phone">Phone</label>
-            <input id="person_phone" class="form-control" placeholder="enter your phone" type="text" name="user_phone" maxlength="11">
-            <div class="invalid-feedback">invalid</div>
+            <input id="person_phone" class="form-control input_field" placeholder="enter your phone" type="text"
+                   name="user_phone" maxlength="11">
+            <div class="invalid-tooltip">field is empty or not a number</div>
         </div>
 
-        <div class="col-auto form-group">
+        <div class="col-auto form-group add_button_div">
             <button id="add_button" type="button" class="btn btn-dark">add</button>
         </div>
     </form>
 
-    <div>
+    <div class="table_div">
         <table class="table table-hover" id="subscribers_table">
             <caption>powered by MaxFerrara</caption>
             <thead class="thead-dark">
@@ -47,15 +50,49 @@
             </thead>
 
             <tbody>
-            <!-- <tr>
-                 <th scope="row">1</th>
-                 <td>Mark</td>
-                 <td>Otto</td>
-                 <td>@mdo</td>
-                 <td><button class="btn del_button"><i class="fa fa-times" aria-hidden="true"></i></button></td>
-             </tr> -->
             </tbody>
         </table>
+    </div>
+
+    <div class="modal fade" id="delete_modal_dialog" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Delete confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span>Do you really want delete this contact?</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary modal_delete_button">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="duplicate_phone_modal_dialog" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="duplicate_dialog">Delete confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span>Contact with this number already added</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>

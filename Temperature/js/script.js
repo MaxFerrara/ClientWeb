@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("value is not entered or not a number! " + celsiusTemperature);
             temperatureInput.value = "";
         } else {
-            fahrenheitOutput.innerText = getFahrenheitFromCelsius(inputNumber);
-            kalvinOutput.innerText = getKalvinFromCelsius(inputNumber);
+            fahrenheitOutput.innerText = convertCelsiusToFahrenheit(Math.floor(inputNumber * 100) / 100);
+            kalvinOutput.innerText = convertCelsiusToKalvin(Math.floor(inputNumber * 100) / 100);
         }
     });
 
@@ -27,11 +27,11 @@ document.addEventListener("DOMContentLoaded", function () {
         kalvinOutput.value = "";
     });
 
-    function getFahrenheitFromCelsius(celsiusTemperature) {
+    function convertCelsiusToFahrenheit(celsiusTemperature) {
         return celsiusTemperature * 1.8 + 32;
     }
 
-    function getKalvinFromCelsius(celsiusTemperature) {
+    function convertCelsiusToKalvin(celsiusTemperature) {
         return celsiusTemperature + 273.15;
     }
 });

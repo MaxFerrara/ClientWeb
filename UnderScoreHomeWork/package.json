@@ -1,0 +1,14 @@
+{
+  "name": "under_score",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MaxFerrara",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "underscore": "^1.10.2"
+  }
+}
