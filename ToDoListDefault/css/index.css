@@ -35,7 +35,7 @@ body, html {
 }
 
 .input_div {
-    width: 75%;
+    width: 82.8%;
 }
 
 .todo_form input {
@@ -73,10 +73,11 @@ body, html {
     margin-top: 20px;
     font-size: 20px;
     color: black;
-    margin-left: 55px;
+    margin-left: 35px;
+    width: auto;
 }
 
-.main li::before {
+.main li > div .first_flex_child::before {
     content: '✔';
     color: black;
 }
@@ -105,6 +106,24 @@ body, html {
 
 .form_div div {
     display: inline-block;
+}
+
+.li_div, .edit_div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+@media screen and (max-width: 800px) {
+    .input_div {
+        width: 100%;
+    }
+
+    .todo_form button {
+        margin-top: 10px;
+    }
 }
 
 
