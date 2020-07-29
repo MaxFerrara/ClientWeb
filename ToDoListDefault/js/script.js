@@ -1,11 +1,18 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", function () {
-    var addToDoItemButton = document.getElementById("add_item_button") || document.getEle;
-    var toDoItemInput = document.getElementById("new_todo_item");
-    var toDoList = document.getElementById("todo_list");
+    document.getElementById("add_item_button").addEventListener("click", addListItem);
 
-    addToDoItemButton.addEventListener("click", function () {
+    document.addEventListener("keydown", function (event) {
+        if (event.code === "Enter") {
+            addListItem();
+        }
+    });
+
+    function addListItem() {
+        var toDoItemInput = document.getElementById("new_todo_item");
+        var toDoList = document.getElementById("todo_list");
+
         var textItem = toDoItemInput.value;
         var newToDoItem = document.createElement("li");
 
@@ -17,24 +24,13 @@ document.addEventListener("DOMContentLoaded", function () {
             toDoItemInput.value = "";
         }
 
-      /*  addEventListener("keydown", function (event) {
-             if(event.keyCode === 13) {
-                 if (textItem === "") {
-                     alert("input field is empty");
-                 } else {
-                     switchToViewMode();
-                     toDoList.appendChild(newToDoItem);
-                     toDoItemInput.value = "";
-                 }
-            }
-        }) */
-
         function switchToViewMode() {
             newToDoItem.innerHTML = "<div class='li_div'>" +
                 "<div class='first_flex_child'><span class='item_text'></span></div>" +
                 "<div><button class='edit_button' type='button'>edit</button>" +
                 "<button class='delete_button' type='button'>delete</button></div>" +
                 "</div>";
+
             newToDoItem.querySelector(".item_text").textContent = textItem;
 
             newToDoItem.querySelector(".delete_button").addEventListener("click", function () {
@@ -67,5 +63,5 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             });
         }
-    });
+    }
 });
