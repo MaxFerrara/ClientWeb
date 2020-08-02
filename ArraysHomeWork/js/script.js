@@ -18,8 +18,8 @@
 
     var numbersArray = [];
 
-    for (var j = 0; j < 100; ++j) {
-        numbersArray[j] = j + 1;
+    for (var i = 1; i <= 100; ++i) {
+        numbersArray.push(i);
     }
     console.log(numbersArray);
 
@@ -51,10 +51,13 @@
     }
 
     function getSquaresOfNumbers(array) {
-        array.map(function (number) {
+        var squaresArray = [];
+        array.filter(function (number) {
             if (number % 2 === 0) {
-                return number * number;
+                squaresArray.push(number * number);
             }
-        });
+        }, 0);
+
+        return squaresArray;
     }
 })();
