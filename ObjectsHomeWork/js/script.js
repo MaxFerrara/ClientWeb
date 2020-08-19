@@ -71,13 +71,9 @@
     console.log(newKeyValueArray);
 
     function getCountriesWithMaxCitiesQuantity(countries) {
-        var maxCitiesQuantity = 0;
-
-        countries.forEach(function (country) {
-            if (country.cities.length > maxCitiesQuantity) {
-                maxCitiesQuantity = country.cities.length;
-            }
-        });
+        var maxCitiesQuantity = countries.reduce(function (max ,country) {
+            return Math.max(country.cities.length, max);
+        }, 0);
 
         return countries.filter(function (element) {
             return element.cities.length === maxCitiesQuantity;
@@ -90,7 +86,7 @@
         countries.forEach(function (country) {
             newObject[country.name] = country.cities.reduce(function (total, current) {
                 return total + current.population;
-            }, 0)
+            }, 0);
         });
 
         return newObject;
