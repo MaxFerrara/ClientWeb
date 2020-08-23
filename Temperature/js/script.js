@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("value is not entered or not a number! " + celsiusTemperature);
             temperatureInput.value = "";
         } else {
-            fahrenheitOutput.innerText = convertCelsiusToFahrenheit(Math.floor(inputNumber * 100) / 100);
-            kalvinOutput.innerText = convertCelsiusToKalvin(Math.floor(inputNumber * 100) / 100);
+            fahrenheitOutput.innerText = convertCelsiusToFahrenheit(inputNumber).toFixed(2);
+            kalvinOutput.innerText = convertCelsiusToKalvin(inputNumber).toFixed(2);
         }
     });
 

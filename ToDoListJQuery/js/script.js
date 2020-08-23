@@ -1,10 +1,9 @@
 $(function () {
     $("#add_item_button").click(addListItem);
 
-    $(document).keypress(function (event) {
-        if (event.code === "Enter") {
-            addListItem();
-        }
+    $("#main_form").on("submit", function (event) {
+        event.preventDefault();
+        addListItem();
     });
 
     function addListItem() {
@@ -47,7 +46,7 @@ $(function () {
                 newTextSelector.val(textItem);
 
                 newToDoItem.find(".save_button").click(function () {
-                    if (newTextSelector.text === "") {
+                    if (newTextSelector.val() === "") {
                         alert("input field is clear");
                         newTextSelector.val(textItem);
                     } else {

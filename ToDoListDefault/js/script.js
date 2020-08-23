@@ -3,10 +3,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("add_item_button").addEventListener("click", addListItem);
 
-    document.addEventListener("keydown", function (event) {
-        if (event.code === "Enter") {
-            addListItem();
-        }
+    document.getElementById("main_form").addEventListener("submit", function (event) {
+       event.preventDefault();
+       addListItem();
     });
 
     function addListItem() {

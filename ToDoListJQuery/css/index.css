@@ -75,11 +75,13 @@ body, html {
     color: black;
     margin-left: 35px;
     width: auto;
+    padding-right: 26px;
 }
 
 .main li > div .first_flex_child::before {
     content: '✔';
     color: black;
+    padding-right: 10px;
 }
 
 .edit_button, .delete_button, .save_button, .cancel_button {
@@ -114,7 +116,6 @@ body, html {
     justify-content: space-between;
     align-items: center;
 }
-
 
 @media screen and (max-width: 800px) {
     .input_div {
