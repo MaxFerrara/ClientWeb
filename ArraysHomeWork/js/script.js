@@ -42,13 +42,13 @@
 
     function getEvenNumbersSum(array) {
         return array.reduce(function (sum, currentValue) {
-            var evenNumbersSum = sum;
+            var result = sum;
 
             if (currentValue % 2 === 0) {
-                evenNumbersSum += currentValue;
+                result += currentValue;
             }
 
-            return evenNumbersSum;
+            return result;
         }, 0);
     }
 

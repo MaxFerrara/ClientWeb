@@ -71,7 +71,7 @@
     console.log(newKeyValueArray);
 
     function getCountriesWithMaxCitiesQuantity(countries) {
-        var maxCitiesQuantity = countries.reduce(function (max ,country) {
+        var maxCitiesQuantity = countries.reduce(function (max, country) {
             return Math.max(country.cities.length, max);
         }, 0);
 
@@ -84,8 +84,8 @@
         var newObject = {};
 
         countries.forEach(function (country) {
-            newObject[country.name] = country.cities.reduce(function (total, current) {
-                return total + current.population;
+            newObject[country.name] = country.cities.reduce(function (total, city) {
+                return total + city.population;
             }, 0);
         });
 
