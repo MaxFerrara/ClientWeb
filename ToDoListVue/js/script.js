@@ -60,6 +60,6 @@ Vue.component("todo-list", {
     template: "#todo-list-template"
 });
 
-var toDoList = new Vue({
+new Vue({
     el: "#my-form"
 });
