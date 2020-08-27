@@ -22,6 +22,12 @@ Vue.component("todo-item", {
             return this.isModified = false;
         },
         saveItem: function () {
+            if(this.newText.trim().length === 0) {
+                alert("input is empty");
+                this.newText = this.item.text;
+                return;
+            }
+
             this.item.text = this.newText;
             this.isModified = false;
         }
@@ -40,6 +46,7 @@ Vue.component("todo-list", {
     methods: {
         addItem: function () {
             if (this.newItemText.trim().length === 0) {
+                alert("input is empty");
                 return;
             }
 

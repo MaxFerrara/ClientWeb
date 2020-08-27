@@ -23,10 +23,6 @@
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="node_modules/vue/dist/vue.js"></script>
 
-<script type="text/x-template" id="todo-item-edit-template ">
-
-</script>
-
 <script type="text/x-template" id="todo-item-template">
     <li>
         <div v-show="!isModified">
@@ -48,15 +44,15 @@
     <div>
         <h2>TodoList</h2>
 
-        <form action="" class="needs-validation">
-            <div class="row form-group">
+        <form action="" class="needs-validation" novalidate>
+            <div class="row-auto form-group">
                 <label class="row" for="todo_item">enter you notice</label>
             </div>
-            <div class="row form-group">
-                <input id="todo_item" class="is-invalid" v-model="newItemText" type="text">
+            <div class="row-auto form-group">
+                <input id="todo_item" class="form-control is-invalid" v-model="newItemText" type="text">
                 <div class="invalid-tooltip">input field is empty</div>
             </div>
-            <div class="row form-group">
+            <div class="row-auto form-group">
                 <button @click="addItem" type="button" class="btn btn-dark">add</button>
             </div>
         </form>

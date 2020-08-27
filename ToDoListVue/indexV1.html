@@ -5,24 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/index.css">
-    <title>To Do List Vue</title>
+    <title>To Do List Vue v2</title>
 </head>
 <body>
 <div class="container">
-    <h2>ToDo List</h2>
-    <div v-cloak id="todo_form">
-        <form action="#" class="form_main">
-            <div class="row">
-                <div class="form-group col">
-                    <label for="new_todo_item">Enter you notice</label>
-                    <input id="new_todo_item" type="text" placeholder="here">
-                </div>
-                <div class="form-group col">
-                    <button id="add_button" type="button" class="btn btn-dark">add</button>
-                </div>
-            </div>
-        </form>
+
+    <div v-cloak id="my-form">
+        <todo-list></todo-list>
     </div>
+
 </div>
 
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
@@ -32,24 +23,43 @@
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="node_modules/vue/dist/vue.js"></script>
 
-<script type="text/x-template" id="todo-item-template" src="js/templateScript.js">
-    <div>
-        <span v-text="item.text"></span>
-        <button @click="deleteItem" type="button" class="btn btn-dark">delete</button>
-    </div>
+<script type="text/x-template" id="todo-item-template">
+    <li>
+        <div v-show="!isModified">
+            <span v-text="item.text"></span>
+            <button @click="deleteItem" type="button" class="btn btn-dark">delete</button>
+            <button @click="editItem" type="button" class="btn btn-dark">edit</button>
+        </div>
+        <div v-show="isModified">
+            <label>
+                <input v-model="newText" type="text">
+                <button @click="saveItem" type="button" class="btn btn-dark">save</button>
+                <button @click="deleteItem" type="button" class="btn btn-dark">delete</button>
+            </label>
+        </div>
+    </li>
 </script>
 
-<script type="text/x-template" id="todo-list-template" src="js/templateScript.js">
+<script type="text/x-template" id="todo-list-template">
     <div>
         <h2>TodoList</h2>
-        <label>
-            <input v-model="newItemText" type="text">
-        </label>
-        <button @click="addItem" type="button" class="btn btn-dark">add</button>
 
-        <div>
+        <form action="" class="needs-validation" novalidate>
+            <div class="row form-group">
+                <label class="row" for="todo_item">enter you notice</label>
+            </div>
+            <div class="row form-group">
+                <input id="todo_item" class="form-control" v-model="newItemText" type="text">
+                <div class="invalid-tooltip">input field is empty</div>
+            </div>
+            <div class="row form-group">
+                <button @click="addItem" type="button" class="btn btn-dark">add</button>
+            </div>
+        </form>
+
+        <ul>
             <todo-item @delete-item="deleteItem" :item="item" :key="item.id" v-for="item in items"></todo-item>
-        </div>
+        </ul>
     </div>
 </script>
 
