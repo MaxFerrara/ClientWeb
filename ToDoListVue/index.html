@@ -8,25 +8,24 @@
     <title>To Do List Vue</title>
 </head>
 <body>
-<div class="container">
-    <div v-cloak id="my-form">
-        <todo-list></todo-list>
-    </div>
-   <!-- <h2 class="custom-header">ToDo List</h2>
-    <form action="#" class="form_main">
-        <div class="row">
-            <div class="form-group col">
-                <label for="new_todo_item">Enter you notice</label>
-                <input id="new_todo_item" type="text" placeholder="here">
-            </div>
-            <div class="form-group col">
-                <button id="add_button" type="button" class="btn btn-dark">add</button>
-            </div>
+<div v-cloak id="my-form" class="container main">
+    <h2>ToDo List</h2>
+
+    <form action="#" class="todo_form">
+        <div class="col form-group input_todo_div">
+            <label class="row" for="todo_item">enter you notice</label>
+            <input id="todo_item" class="form-control" v-model="newItemText" type="text">
+            <div v-if="isInputFieldEmpty" class="invalid_validate">input field is empty!</div>
+        </div>
+
+        <div class="col form-group">
+            <button @click="addItem" type="button" class="btn btn-dark custom_button">add</button>
         </div>
     </form>
 
-    <ul id="todo_list">
-    </ul> -->
+    <ul>
+        <todo-item @delete-item="deleteItem" :item="item" :key="item.id" v-for="item in items"></todo-item>
+    </ul>
 </div>
 
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
@@ -36,25 +35,28 @@
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="node_modules/vue/dist/vue.js"></script>
 
-<script type="text/x-template" id="todo-item-template" src="js/script_v1.js">
-    <div>
-        <span v-text="item.text"></span>
-        <button @click="deleteItem" type="button" class="btn btn-dark">delete</button>
-    </div>
-</script>
-
-<script type="text/x-template" id="todo-list-template" src="js/script_v1.js">
-    <div>
-        <h2>TodoList</h2>
-        <label>
-            <input  v-model="newItemText" type="text">
-        </label>
-        <button @click="addItem" type="button" class="btn btn-dark">add</button>
-
-        <div>
-            <todo-item @delete-item="deleteItem" :item="item" :key="item.id" v-for="item in items"></todo-item>
+<script type="text/x-template" id="todo-item-template">
+    <li>
+        <div v-show="!isModified" class="li_div">
+            <div class="first_flex_child"><span v-text="item.text"></span></div>
+            <div>
+                <button @click="deleteItem" type="button" class="btn btn-dark custom_button">delete</button>
+                <button @click="editItem" type="button" class="btn btn-dark custom_button">edit</button>
+            </div>
         </div>
-    </div>
+        <div v-show="isModified" class="edit_div">
+            <div>
+                <label>
+                    <input v-model="newText" type="text">
+                </label>
+                <div v-if="isItemEmpty">input field is empty!</div>
+            </div>
+            <div>
+                <button @click="saveItem" type="button" class="btn btn-dark custom_button">save</button>
+                <button @click="deleteItem" type="button" class="btn btn-dark custom_button">delete</button>
+            </div>
+        </div>
+    </li>
 </script>
 
 <script src="js/script.js"></script>
