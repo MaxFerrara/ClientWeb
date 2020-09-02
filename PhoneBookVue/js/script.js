@@ -14,9 +14,25 @@ Vue.component("book-item", {
 new Vue({
     el: "#my-phone-book",
     data: {
-
+        personName: "",
+        personSurname:"",
+        personPhone:"",
+        contactId: 1,
+        phoneNumbers: [],
+        isContactValidate: false
     },
     methods: {
+        addContact: function () {
+            var contactFieldsArray = [];
 
+            contactFieldsArray.push(this.personName);
+            contactFieldsArray.push(this.personSurname);
+            contactFieldsArray.push(this.personPhone);
+
+
+        },
+        deleteContact: function () {
+
+        }
     }
 });
