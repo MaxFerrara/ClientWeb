@@ -53,7 +53,7 @@
             </thead>
 
             <tbody>
-            <book-item></book-item>
+            <book-item :item="item" :key="item.id" v-for="item in phoneNumbers"></book-item>
             </tbody>
         </table>
     </div>
@@ -109,11 +109,11 @@
 
 <script type="text/x-template" id="contact-template">
 <tr>
-    <th class='index_number' scope='row'></th>
-    <td class='name_value'></td>
-    <td class='surname_value'></td>
-    <td class='phone_value'></td>
-    <td><button type='button' class='btn del_button'><i class='fa fa-times' aria-hidden='true'></i></button></td>
+    <th class='index_number' scope='row'>{{ item.name }}</th>
+    <td class='name_value'>{{item.name}}</td>
+    <td class='surname_value'>{{item.surname}}</td>
+    <td class='phone_value'>{{item.phone}}</td>
+    <td><button @click="deleteContact" type='button' class='btn del_button'><i class='fa fa-times' aria-hidden='true'></i></button></td>
 </tr>
 </script>
 
