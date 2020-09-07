@@ -1,10 +1,10 @@
 Vue.component("todo-item", {
     data: function () {
         return {
-            isModified: false,
+            isChanged: false,
             newText: this.item.text,
             isItemEmpty: false
-        }
+        };
     },
     props: {
         item: {
@@ -17,10 +17,10 @@ Vue.component("todo-item", {
             this.$emit("delete-item", this.item);
         },
         editItem: function () {
-            this.isModified = true;
+            this.isChanged = true;
         },
         cancelItem: function () {
-            return this.isModified = false;
+            return this.isChanged = false;
         },
         saveItem: function () {
             if (this.newText.trim().length === 0) {
@@ -30,7 +30,7 @@ Vue.component("todo-item", {
             }
 
             this.item.text = this.newText;
-            this.isModified = false;
+            this.isChanged = false;
             this.isItemEmpty = false;
         }
     },
@@ -54,7 +54,7 @@ new Vue({
 
             this.items.push({
                 id: this.newId,
-                text: this.newItemText,
+                text: this.newItemText
             });
 
             this.newId++;

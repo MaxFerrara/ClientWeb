@@ -29,22 +29,19 @@
 </div>
 
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script>
-    $.noConflict();
-</script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="node_modules/vue/dist/vue.js"></script>
 
 <script type="text/x-template" id="todo-item-template">
     <li>
-        <div v-show="!isModified" class="li_div">
+        <div v-if="!isChanged" class="li_div">
             <div class="first_flex_child"><span v-text="item.text"></span></div>
             <div>
                 <button @click="deleteItem" type="button" class="btn btn-dark custom_button">delete</button>
                 <button @click="editItem" type="button" class="btn btn-dark custom_button">edit</button>
             </div>
         </div>
-        <div v-show="isModified" class="edit_div">
+        <div v-else class="edit_div">
             <div>
                 <label>
                     <input v-model="newText" type="text">

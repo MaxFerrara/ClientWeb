@@ -16,8 +16,8 @@
             <label for="person_name">Name</label>
             <input v-model="personName" id="person_name" class="form-control input_field" placeholder="enter your name" type="text"
                    name="user_name">
-            <!--<div class="invalid-tooltip" v-bind:class="{ is-ivalid: isContactValidate }">field is empty</div>-->
-            <div v-if="isContactValidate" class="invalid_validate">input field is empty!</div>
+            <div class="invalid-tooltip is-invalid" v-bind:class="{ 'is-invalid': isContactValidate }">field is empty</div>
+            <!--<div v-if="isContactValidate" class="invalid_validate">input field is empty!</div>-->
         </div>
 
         <div class="col-auto form-group">
@@ -51,7 +51,6 @@
             <th scope="col">Phone number</th>
             <th scope="col">delete option</th>
             </thead>
-
             <tbody>
             <book-item :item="item" :key="item.id" v-for="item in phoneNumbers"></book-item>
             </tbody>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <title>Phone book</title>
+</head>
+<body>
+<div v-cloak id="phone-book" class="container">
+    <h1 class="book_header"></h1>
+
+    <form action="#" class="form-row form_block align-items-center needs-validation" novalidate>
+        <div class="col-auto form-group">
+            <label for="person_name">Name</label>
+            <input v-model="personName" id="person_name" class="form-control input_field" placeholder="enter your name" type="text"
+                   name="user_name">
+            <!--<div class="invalid-tooltip is-invalid" v-bind:class="{ 'is-invalid': isContactValidate }">field is empty</div>-->
+            <div v-if="isContactValidate" class="invalid_validate">input field is empty!</div>
+        </div>
+
+        <div class="col-auto form-group">
+            <label for="person_surname">Surname</label>
+            <input v-model="personSurname" id="person_surname" class="form-control input_field" placeholder="enter your surname" type="text"
+                   name="user_surname">
+            <!--<div class="invalid-tooltip" >field is empty</div>-->
+            <div v-if="isContactValidate" class="invalid_validate">input field is empty!</div>
+        </div>
+
+        <div class="col-auto form-group">
+            <label for="person_phone">Phone</label>
+            <input v-model="personPhone" id="person_phone" class="form-control input_field" placeholder="enter your phone" type="text"
+                   name="user_phone" maxlength="11">
+            <!--<div class="invalid-tooltip">field is empty or not a number</div>-->
+            <div v-if="isContactValidate" class="invalid_validate">input field is empty!</div>
+        </div>
+
+        <div class="col-auto form-group add_button_div">
+            <button @click="addContact" id="add_button" type="button" class="btn btn-dark">add</button>
+        </div>
+    </form>
+
+    <div class="phone_book_table">
+        <table class="table table-hover" id="subscribers_table">
+            <caption>powered by MaxFerrara</caption>
+            <thead class="thead-dark">
+            <th scope="col">№</th>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Phone number</th>
+            <th scope="col">delete option</th>
+            </thead>
+            <tbody>
+            <tr v-for="(contact, index) in contacts" :key="contact.id">
+                <th class='index_number' scope='row'>{{ index+1 }}</th>
+                <td class='name_value'>{{contact.name}}</td>
+                <td class='surname_value'>{{contact.surname}}</td>
+                <td class='phone_value'>{{contact.phone}}</td>
+                <td><button @click="deleteContact" type='button' class='btn del_button'><i class='fa fa-times' aria-hidden='true'></i></button></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="js/script_v1.js"></script>
+</body>
+</html>

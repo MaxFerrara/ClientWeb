@@ -1,27 +1,12 @@
-Vue.component("book-item", {
-    props: {
-        item: {
-            type: Object,
-            required: true
-        }
-    },
-    methods: {
-        deleteContact: function () {
-            this.$emit("delete-contact", this.item);
-        }
-    },
-    template: "#contact-template"
-});
-
 new Vue({
-    el: "#my-phone-book",
+    el: "#phone-book",
     data: {
         personName: "",
         personSurname:"",
         personPhone:"",
         contactId: 1,
-        phoneNumbers: [],
-        isContactValidate: true
+        contacts: [],
+        isContactValidate: false
     },
     methods: {
         addContact: function () {
@@ -30,7 +15,7 @@ new Vue({
                 return;
             }
 
-            this.phoneNumbers.push({
+            this.contacts.push({
                 id: this.contactId,
                 name: this.personName,
                 surname: this.personSurname,
@@ -42,9 +27,9 @@ new Vue({
             this.personSurname = "";
             this.personPhone = "";
         },
-        deleteContact: function (item) {
-            this.phoneNumbers = this.phoneNumbers.filter(function (e) {
-                return e !== item;
+        deleteContact: function (contact) {
+            this.contacts = this.contacts.filter(function (e) {
+                return e !== contact;
             });
         }
     }
