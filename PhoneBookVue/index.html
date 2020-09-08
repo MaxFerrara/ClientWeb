@@ -34,6 +34,7 @@
                    name="user_phone" maxlength="11">
             <!--<div class="invalid-tooltip">field is empty or not a number</div>-->
             <div v-if="isContactValidate" class="invalid_validate">input field is empty!</div>
+            <div v-if="isNaN" class="invalid_validate">input phone not a number!</div>
         </div>
 
         <div class="col-auto form-group add_button_div">
@@ -52,7 +53,8 @@
             <th scope="col">delete option</th>
             </thead>
             <tbody>
-            <book-item :item="item" :key="item.id" v-for="item in phoneNumbers"></book-item>
+            <tr @delete-contact="deleteContact" is="book-item" :item="item" :key="item.id" v-for="(item,index) in phoneNumbers"></tr>
+            <!--<book-item :item="item" :key="item.id" v-for="item in phoneNumbers"></book-item>-->
             </tbody>
         </table>
     </div>
@@ -108,7 +110,7 @@
 
 <script type="text/x-template" id="contact-template">
 <tr>
-    <th class='index_number' scope='row'>{{ item.name }}</th>
+    <th class='index_number' scope='row'>{{ item.id }}</th>
     <td class='name_value'>{{item.name}}</td>
     <td class='surname_value'>{{item.surname}}</td>
     <td class='phone_value'>{{item.phone}}</td>

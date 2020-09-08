@@ -21,12 +21,18 @@ new Vue({
         personPhone:"",
         contactId: 1,
         phoneNumbers: [],
-        isContactValidate: true
+        isContactValidate: false,
+        isNaN:false
     },
     methods: {
         addContact: function () {
             if (this.personName.trim().length === 0) {
                 alert("input field is empty")
+                return;
+            }
+
+           if(this.isNumber(this.personPhone.text())) {
+                this.isNaN = true;
                 return;
             }
 
@@ -41,11 +47,15 @@ new Vue({
             this.personName = "";
             this.personSurname = "";
             this.personPhone = "";
+            this.isNaN = false
         },
         deleteContact: function (item) {
             this.phoneNumbers = this.phoneNumbers.filter(function (e) {
                 return e !== item;
             });
+        },
+        isNumber: function (number) {
+            return isNaN(Number(text));
         }
     }
 });
