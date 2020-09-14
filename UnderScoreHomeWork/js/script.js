@@ -1,6 +1,6 @@
 "use strict";
 
-$(function () {
+(function () {
     var personsList = [{name: "Willy", lastName: "Wonka", age: 35},
         {name: "Peter", lastName: "Parker", age: 26},
         {name: "Anthony", lastName: "Stark", age: 42},
@@ -13,20 +13,20 @@ $(function () {
         {name: "Jack", lastName: "Sparrow", age: 45}];
 
     //task 1
-    var averageAge = getAveragePeopleAge(personsList);
-    console.log(averageAge);
+
+    console.log(getAveragePeopleAge(personsList));
 
     //task 2
-    var middleAgePersons = getPersonsWithAgeBetween20And30(personsList);
-    console.log(middleAgePersons);
+
+    console.log(getPersonsWithAgeBetween20And30(personsList))
 
     //task 3
-    var personsListWithFullNameField = getPersonsListWithFullNameField(personsList);
-    console.log(personsListWithFullNameField);
+
+    console.log(addFullNameField(personsList))
 
     function getAveragePeopleAge(list) {
-        return _.reduce(list, function (totalAge, currentAge) {
-            return totalAge + currentAge.age;
+        return _.reduce(list, function (totalAge, personAge) {
+            return totalAge + personAge.age;
         }, 0) / list.length;
     }
 
@@ -39,14 +39,9 @@ $(function () {
             .value();
     }
 
-    function getPersonsListWithFullNameField(list) {
-        return _.map(list, function (person) {
-            return {
-                name: person.name,
-                lastName: person.lastName,
-                age: person.age,
-                fullName: person.name + " " + person.lastName
-            }
+    function addFullNameField(list) {
+        return _.each(list, function (person) {
+            person.fullName = person.name + " " + person.lastName;
         });
     }
-});
+})();
